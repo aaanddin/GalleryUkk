@@ -28,16 +28,16 @@
                 </label>
                 <div class="right">
                     <div class="card-2">
-                        <p class="text-center">Create My Post</p>
+                        <p class="text-center text-light mt-2">Create My Post</p>
                     </div>
                     <div class="card-3"> 
-                        <input type="text" name="JudulFoto" id="JudulFoto" class="input" placeholder="My Title Photo Post">
+                        <input type="text" name="JudulFoto" id="JudulFoto" class="input" placeholder="Photo's Title">
                     </div>
                     <div class="card-3">
                         <textarea id="Deskripsi" type="text" name="DeskripsiFoto" id="DeskripsiFoto" class="input" placeholder="Photo's Description"></textarea>
                     </div>
                 </div>
-                <button type="submit" id="createfoto">Post</button>
+                <button class="mb-2" type="submit" id="createfoto">Post</button>
             </div>
         </form>
     </div>

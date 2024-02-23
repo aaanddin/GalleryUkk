@@ -1,7 +1,7 @@
 <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar" style="" >
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center"  href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center"  href="/">
                 <div class="sidebar-brand-icon">
                 <img src="../img/paus.png" alt="" style="width:50px; height:50px;">
                 </div>
@@ -13,7 +13,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{route('page.home')}}">
+                <a class="nav-link" href="/home">
                 <i class="bi bi-house-door-fill" id="icon" style="color: #F6F6F6"></i>
                     <span  style="color: #F6F6F6" id="text">Home</span></a>
             </li>

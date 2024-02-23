@@ -7,15 +7,19 @@ use App\Models\Foto;
 use App\Models\Album;
 use App\Models\User;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Date;
+
 
 class FotoController extends Controller
 {
 
     public function index() {
 
+        $fotos = Foto::all();
         return view('page.foto', [
             "active" => "foto",
-            "title" => "Photo"
+            "title" => "Photo",
+            "fotos" => $fotos
         ]);
     }
 
@@ -49,12 +53,14 @@ class FotoController extends Controller
         // Simpan gambar di folder public/news dengan nama yang diacak tadi
         $fotoDirectory = public_path() . '/foto';
         $request->file('LokasiFile')->move($fotoDirectory, $imageName);
-        
+        $validated['TanggalUnggah'] = Date::now();
+
         // insert row baru di table news dengan data didalam validated
         Foto::create($validated);
 
         // Redirect ke halaman index
         return redirect()->route('page.foto')->with('success', 'Fotomu sudah di post');
+        return redirect()->route('page.foto')->with('error', 'Post Foto Gagal');
     }
 
     

@@ -1,5 +1,5 @@
 @extends('layout.app')
 
 @section('content')
-<p>Create Album</p>
+<p>create album</p>
 @endsection

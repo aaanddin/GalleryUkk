@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <title>Gallerium | {{$title}}</title>
@@ -58,14 +59,14 @@
                             <div class="paste-button">
                             <button class="button">Let's Make &nbsp; ▼</button>
                             <div class="dropdown-content">
-                                <a id="top" href="{{ route('page.fotoaction.create') }}">Post</a>
-                                <a id="bottom" href="{{ route('page.albumaction.create') }}">Album</a>
+                                <a id="top" href="/login">Post</a>
+                                <a id="bottom" href="/create-album">Album</a>
                             </div>
                             </div>
                         </div>
                     </div>
                     <div class="d-sm-flex align-items-center justify-content-start mb-4">
-                        <p class="text-gray-800"><a href="{{route('page.home')}}" style="text-decoration: none;"><span style="color: #8785A2; font-weight: bold;">digigallery</span></a> - build your digital gallery</p>
+                        <p class="text-gray-800"><a href="/home" style="text-decoration: none;"><span style="color: #8785A2; font-weight: bold;">Gallerium</span></a> - build your digital gallery</p>
                     </div>
 
                     <!-- Content Row -->
@@ -145,13 +146,15 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="/register">Logout</a>
+                    <a class="btn btn-primary" href="/login">Logout</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Bootstrap core JavaScript-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 

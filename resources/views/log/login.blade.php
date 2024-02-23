@@ -24,6 +24,8 @@
             rel="stylesheet"
         />
 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
         <!-- Custom styles for this template-->
         <link href="css/sb-admin-2.min.css" rel="stylesheet" />
         <style>
@@ -38,16 +40,31 @@
     </head>
 
     <body class="" style="background-color: #24293e">
+        {{-- @if($errors->any())
+        @foreach($errors->all() as $r)
+        {{$r}}
+        @endforeach --}}
+                          {{-- @endif --}}
         <div class="container">
             <!-- Outer Row -->
             <div class="row justify-content-center">
                 <div class="col-xl-10 col-lg-12 col-md-9">
-                    @if(@session()->has('success'))
+                  @if(session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{session('success')}}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     @endif
+             
+
+
+                    @if(session()->has('loginError'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{session('loginError')}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @endif
+
                     <div class="card o-hidden border-0 shadow-lg my-5">
                         <div
                             class="card-body p-0"
@@ -68,51 +85,27 @@
                                                 Welcome Back To Gallerium !
                                             </h1>
                                         </div>
-                                        <form class="user">
-                                            <div class="form-group">
-                                                <input
-                                                    type="email"
-                                                    class="form-control form-control-user"
-                                                    id="exampleInputEmail"
-                                                    aria-describedby="emailHelp"
-                                                    placeholder="Enter Email Address..."
-                                                />
-                                            </div>
-                                            <div class="form-group">
-                                                <input
-                                                    type="password"
-                                                    class="form-control form-control-user"
-                                                    id="exampleInputPassword"
-                                                    placeholder="Password"
-                                                />
-                                            </div>
-                                            <div class="form-group">
-                                                <div
-                                                    class="custom-control custom-checkbox small"
-                                                >
-                                                    <input
-                                                        type="checkbox"
-                                                        class="custom-control-input"
-                                                        id="customCheck"
-                                                    />
-                                                    <label
-                                                        class="custom-control-label"
-                                                        for="customCheck"
-                                                        >Remember Me</label
-                                                    >
-                                                </div>
-                                            </div>
-                                            <a
-                                                href="/"
-                                                class="btn btn-user btn-block"
-                                                style="
-                                                    background-color: #8ebbff;
-                                                    color: #24293e;
-                                                "
-                                            >
-                                                Login
-                                            </a>
-                                        </form>
+                                        <form class="user" action="{{ route('login.authenticate') }}" method="post">
+    @csrf
+    <div class="form-group">
+        <input type="email" class="form-control form-control-user @error('Email') is-invalid @enderror" name="Email" id="Email" placeholder="Enter your email" autofocus required value="{{ old ('Email') }}">
+        @error('Email')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control form-control-user" name="Password" id="Password" placeholder="Enter your password" required autofocus>
+        @error('Password')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
+    </div>
+    <button class="btn btn-user btn-block" style="background-color: #8ebbff; color: #24293e;">Login</button>
+</form>
+
                                         <hr />
                                         <div class="text-center">
                                             <a
@@ -140,6 +133,7 @@
         <!-- Bootstrap core JavaScript-->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
         <!-- Core plugin JavaScript-->
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
