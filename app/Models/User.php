@@ -20,11 +20,11 @@ class User extends Authenticatable
     protected $guarded = ['id'];
 
     protected $fillable = [
-        'Username',
-        'Password',
-        'Email',
-        'NamaLengkap',
-        'Alamat',
+        'username',
+        'password',
+        'email',
+        'namalengkap',
+        'alamat',
     ];
 
     /**

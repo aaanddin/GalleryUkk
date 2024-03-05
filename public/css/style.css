@@ -18,43 +18,45 @@ body#welcome .card:hover {
     box-shadow: 20px 20px 60px #394867, -20px -20px 60px #394867;
 }
 
-h1.protest-revolution-regular, p.protest-revolution-regular, a.protest-revolution-regular {
-  font-family: "Protest Revolution", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  text-align: center;
-  color: white;
+h1.protest-revolution-regular,
+p.protest-revolution-regular,
+a.protest-revolution-regular {
+    font-family: "Protest Revolution", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    color: white;
 }
 
-body#welcome .row#log{
-  margin-left: 70px;
-  margin-top: 30px;
+body#welcome .row#log {
+    margin-left: 70px;
+    margin-top: 30px;
 }
-body#welcome .row .col-3 a#signup{
-  background-color: #e8e8e8;
-  color: #394867;
-  font-weight: bold;
-  width: 150px;
-}
-
-body#welcome .row .col-3 a#signup:hover{
-  background-color: #394867;
-  font-weight: bold;
-  color: white;
+body#welcome .row .col-3 a#signup {
+    background-color: #e8e8e8;
+    color: #394867;
+    font-weight: bold;
+    width: 150px;
 }
 
-body#welcome .row .col-3 a#signin{
-  border: 1px solid #e8e8e8;
-  color: white;
-  margin-left: 50px;
-  width: 150px;
+body#welcome .row .col-3 a#signup:hover {
+    background-color: #394867;
+    font-weight: bold;
+    color: white;
 }
 
-body#welcome .row .col-3 a#signin:hover{
-  border: 1px solid #394867;
-  color: white;
-  margin-left: 50px;
-  width: 150px;
+body#welcome .row .col-3 a#signin {
+    border: 1px solid #e8e8e8;
+    color: white;
+    margin-left: 50px;
+    width: 150px;
+}
+
+body#welcome .row .col-3 a#signin:hover {
+    border: 1px solid #394867;
+    color: white;
+    margin-left: 50px;
+    width: 150px;
 }
 
 /* ************************************** NAVBAR ************************************************** */
@@ -145,210 +147,192 @@ body#page-top {
 
 /* **************************************CREATE ALBUM************************************************** */
 .card#createalbum {
-  width: 220px;
-  height: 320px;
-  padding-top: 20px;
-  background: #f5f5f5;
-  transition: box-shadow .3s ease, transform .2s ease;
- }
- 
- .card-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: transform .2s ease, opacity .2s ease;
- }
- 
- /*Image*/
- .card-avatar {
+    width: 220px;
+    height: 320px;
+    padding-top: 20px;
+    background: #f5f5f5;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
 
-  background: url(../img/langit.jpg);
-  width: 190px;
-  height:254px;
-  transition: transform .2s ease;
-  
- }
- 
- 
- /*Card footer*/
- .container input#like {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
+.card-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/*Image*/
+.card-avatar {
+    background: url(../img/langit.jpg);
+    width: 190px;
+    height: 254px;
+    transition: transform 0.2s ease;
+}
+
+/*Card footer*/
+.container input#like {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
 }
 
 .container {
-  display: block;
-  position: relative;
-  cursor: pointer;
-  user-select: none;
+    display: block;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
 }
 
 .container svg {
-  position: relative;
-  top: 0;
-  left: 0;
-  height: 35px;
-  width: 35px;
-  transition: all 0.3s;
-  fill: lightgrey;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 35px;
+    width: 35px;
+    transition: all 0.3s;
+    fill: lightgrey;
 }
 
 .container svg:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .container input:checked ~ svg {
-  fill: #394867;
+    fill: #394867;
 }
 
+.card-social {
+    transform: translateY(200%);
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    opacity: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
 
- .card-social {
-  transform: translateY(200%);
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  opacity: 0;
-  transition: transform .2s ease, opacity .2s ease;
- }
- 
- .card-social__item {
-  list-style: none;
- }
- 
- .card-social__item svg.photo {
-  display: block;
-  height: 35px;
-  width: 35px;
-  cursor: pointer;
-  transition: fill 0.2s ease ,transform 0.2s ease;
-  margin-bottom: -7px;
- }
- 
- 
- /*Hover*/
- .card#createalbum:hover {
-  border: 2px solid #2f3651;
- }
- 
+.card-social__item {
+    list-style: none;
+}
 
- 
- .card#createalbum:hover .card-social {
-  transform: translateY(100%);
-  opacity: 1;
- }
- 
- .card-social__item svg.photo:hover {
-  transform: scale(1.1);
-  background-color: white;
- }
- 
+.card-social__item svg.photo {
+    display: block;
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+    transition: fill 0.2s ease, transform 0.2s ease;
+    margin-bottom: -7px;
+}
+
+/*Hover*/
+.card#createalbum:hover {
+    border: 2px solid #2f3651;
+}
+
+.card#createalbum:hover .card-social {
+    transform: translateY(100%);
+    opacity: 1;
+}
+
+.card-social__item svg.photo:hover {
+    transform: scale(1.1);
+    background-color: white;
+}
+
 /* **************************************CREATE FOTO************************************************** */
 .custum-file-upload {
-  height: 200px;
-  width: 25rem;
-  display: flex;
-  flex-direction: column;
-  align-items: space-between;
-  gap: 20px;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  border: 2px dashed #e8e8e8;
-  background-color: #394867;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0px 48px 35px -48px #e8e8e8;
+    height: 200px;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    gap: 20px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #e8e8e8;
+    background-color: #394867;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0px 48px 35px -48px #e8e8e8;
 }
 
 .custum-file-upload .icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .custum-file-upload .icon svg {
-  height: 80px;
-  fill: #e8e8e8;
+    height: 80px;
+    fill: #e8e8e8;
 }
 
 .custum-file-upload .text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .custum-file-upload .text span {
-  font-weight: 400;
-  color: #e8e8e8;
+    font-weight: 400;
+    color: #e8e8e8;
 }
 
 .custum-file-upload input {
-  display: none;
+    display: none;
 }
 
 /* card */
 .card#create {
-  --gray: rgba(229, 231, 235, 1);
-  width: 450px;
-  height: 35rem;
-  display: flex;
-  grid-gap: 1.25rem;
-  gap: 1.25rem;
-  border-radius: 1rem;
-  background-color: rgba(255, 255, 255, 1);
-  padding: 1.5rem;
+    --gray: rgba(229, 231, 235, 1);
+    width: 450px;
+    height: 35rem;
+    display: flex;
+    grid-gap: 1.25rem;
+    gap: 1.25rem;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 1.5rem;
 }
 
 .card-1 {
-  width: 40%;
-  border-radius: 0.75rem;
-  background-color: var(--gray);
+    width: 40%;
+    border-radius: 0.75rem;
+    background-color: var(--gray);
 }
 
 .right {
-  display: flex;
-  flex: 1 1 0%;
-  flex-direction: column;
-  grid-gap: 1.25rem;
-  gap: 1.25rem;
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    grid-gap: 1.25rem;
+    gap: 1.25rem;
 }
 
 .card-2 {
-  height: 2.5rem;
-  width: 100%;
-  border-radius: 1rem;
-  background-color: #394867;
+    height: 2.5rem;
+    width: 100%;
+    border-radius: 1rem;
+    background-color: #394867;
 }
 
 .bottom {
-  margin-top: auto;
-  display: flex;
-  grid-gap: 0.75rem;
-  gap: 0.75rem;
+    margin-top: auto;
+    display: flex;
+    grid-gap: 0.75rem;
+    gap: 0.75rem;
 }
 @keyframes pulse {
-  to {
+    to {
         opacity: 0.2;
-      }
     }
-    
-    /* input */
-    .input {
-      border: 2px solid #394867;
-      padding: 15px;
-      border-radius: 10px;
-      background-color: #f6f6f6;
-      font-size: small;
-      font-weight: bold;
-    text-align: center;
-    width: 25rem;
-  }
-  
-  textarea#deskripsifoto {
+}
+
+/* input */
+.input {
     border: 2px solid #394867;
     padding: 15px;
     border-radius: 10px;
@@ -357,17 +341,28 @@ body#page-top {
     font-weight: bold;
     text-align: center;
     width: 25rem;
-  }
-  .input:focus,
-  textarea#deskripsifoto:focus {
+}
+
+textarea#deskripsifoto {
+    border: 2px solid #394867;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f6f6f6;
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+    width: 25rem;
+}
+.input:focus,
+textarea#deskripsifoto:focus {
     outline-color: #394867;
     background-color: #f6f6f6;
     color: #394867;
     box-shadow: 5px 5px #7c96ab;
-  }
-  
-  /* button */
-  button#createfoto {
+}
+
+/* button */
+button#createfoto {
     position: relative;
     display: inline-block;
     margin-top: -25px;
@@ -384,20 +379,20 @@ body#page-top {
     box-shadow: inset 0 0 0 0 #394867;
     width: 100px;
     height: 40px;
-  }
-  
-  button#createfoto:hover {
+}
+
+button#createfoto:hover {
     color: white;
     box-shadow: inset 0 -100px 0 0 #394867;
-  }
-  
+}
+
 button#createfoto:active {
-  transform: scale(10);
+    transform: scale(10);
 }
 
 /* **************************************PHOTO************************************************** */
 
- .row .col-2 .card#photo:hover{
+/* .row .col-2 .card#photo:hover{
   transform: scale(1.02);
 }
 
@@ -419,4 +414,4 @@ button#createfoto:active {
   object-fit: cover;
   padding: 15px;
   background-color: whitesmoke;
-}
+} */

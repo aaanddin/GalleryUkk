@@ -6,7 +6,7 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FotoController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LoginduaController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\NavbarController;
 
@@ -27,18 +27,19 @@ Route::get('/wel', function () {
 
 Route::redirect('/home', '/photo');
 
-Route::get('/', [WelcomeController::class, 'index'])->name('page.welcome');
-Route::get('/home', [HomeController::class, 'index']);
-Route::get('/album', [AlbumController::class, 'index'])->name('page.album');
-Route::get('/create-album', [AlbumController::class, 'create'])->middleware('guest');
-Route::get('/photo', [FotoController::class, 'index'])->name('page.foto');
+Route::get('/', [WelcomeController::class, 'index'])->name('page.welcome')->middleware('guest');
+Route::get('/home', [HomeController::class, 'index'])->middleware('auth');
+Route::get('/album', [AlbumController::class, 'index'])->name('page.album')->middleware('auth');
+Route::get('/create-album', [AlbumController::class, 'create'])->name('page.albumaction.create')->middleware('auth');
+Route::get('/photo', [FotoController::class, 'index'])->name('page.foto')->middleware('auth');
 
 // Tambah post
-Route::get('/create-foto', [FotoController::class, 'create'])->name('page.fotoaction.create');
+Route::get('/create-foto', [FotoController::class, 'create'])->name('page.fotoaction.create')->middleware('auth');
 Route::post('/create-foto', [FotoController::class, 'store'])->name('foto.store');
 
-// Login dan Logout
-Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
-Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
-Route::get('/register', [RegisterController::class, 'index']);
+// Login, Logout, resgister
+Route::get('/login', [LoginduaController::class, 'index'])->name('log.login')->middleware('guest');
+Route::post('/login', [LoginduaController::class, 'authenticate'])->name('login.authenticate');
+Route::get('/register', [RegisterController::class, 'index'])->name('log.register')->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+Route::get('/logout', [LoginduaController::class, 'logout'])->name('login.logout');

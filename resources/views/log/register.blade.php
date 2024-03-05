@@ -39,46 +39,47 @@
                              </div>
                              <form class="user" action="{{route('register.store')}}" method="post">
                                  @csrf
+                                 
                                  <div class="form-group">
-                                     <input type="email" class="form-control form-control-user @error('Email')is-invalid @enderror" name="Email" id="Email"
-                                         placeholder="Email Address" required value="{{old('Email')}}">
-                                         @error('Email')
-                                         <div class="invalid-feedback">
-                                           {{$message}}
-                                        </div>
-                                        @enderror
-                                 </div>
-                                 <div class="form-group">
-                                     <input type="text" class="form-control form-control-user @error('Username')is-invalid @enderror" name="Username" id="Username"
-                                         placeholder="Username" required value="{{old('Username')}}">
-                                         @error('Username')
+                                     <input type="email" class="form-control form-control-user @error('email')is-invalid @enderror" name="email" id="email"
+                                         placeholder="Username" required value="{{old('email')}}">
+                                         @error('email')
                                          <div class="invalid-feedback">
                                             {{$message}}
                                         </div>
                                         @enderror
                                  </div>
                                  <div class="form-group">
-                                     <input type="text" class="form-control form-control-user @error('NamaLengkap')is-invalid @enderror" name="NamaLengkap" id="NamaLengkap"
-                                         placeholder="Full Name" required value="{{old('NamaLengkap')}}">
-                                         @error('NamaLengkap')
+                                     <input type="text" class="form-control form-control-user @error('username')is-invalid @enderror" name="username" id="username"
+                                         placeholder="username" required value="{{old('username')}}">
+                                         @error('username')
                                          <div class="invalid-feedback">
                                             {{$message}}
                                         </div>
                                         @enderror
                                  </div>
                                  <div class="form-group">
-                                     <input type="text" class="form-control form-control-user @error('Alamat')is-invalid @enderror" name="Alamat" id="Alamat"
-                                         placeholder="Address" required value="{{old('Alamat')}}">
-                                         @error('Alamat')
+                                     <input type="text" class="form-control form-control-user @error('namalengkap')is-invalid @enderror" name="namalengkap" id="namalengkap"
+                                         placeholder="Full Name" required value="{{old('namalengkap')}}">
+                                         @error('namalengkap')
                                          <div class="invalid-feedback">
                                             {{$message}}
                                         </div>
                                         @enderror
                                  </div>
                                  <div class="form-group">
-                                     <input type="password" class="form-control form-control-user @error('Password')is-invalid @enderror" name="Password" id="Password"
-                                         placeholder="Password" required value="{{old('Password')}}">
-                                         @error('Password')
+                                     <input type="text" class="form-control form-control-user @error('alamat')is-invalid @enderror" name="alamat" id="alamat"
+                                         placeholder="Address" required value="{{old('alamat')}}">
+                                         @error('alamat')
+                                         <div class="invalid-feedback">
+                                            {{$message}}
+                                        </div>
+                                        @enderror
+                                 </div>
+                                 <div class="form-group">
+                                     <input type="password" class="form-control form-control-user @error('password')is-invalid @enderror" name="password" id="password"
+                                         placeholder="password" required value="{{old('password')}}">
+                                         @error('password')
                                          <div class="invalid-feedback">
                                             {{$message}}
                                         </div>

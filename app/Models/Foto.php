@@ -11,7 +11,7 @@ class Foto extends Model
 
     protected $guarded = ['FotoID'];
 
-    protected $fillabe = [
+    protected $fillable = [
         'JudulFoto',
         'DeskripsiFoto',
         'TanggalUnggah',

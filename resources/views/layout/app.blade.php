@@ -59,7 +59,7 @@
                             <div class="paste-button">
                             <button class="button">Let's Make &nbsp; ▼</button>
                             <div class="dropdown-content">
-                                <a id="top" href="/login">Post</a>
+                                <a id="top" href="/create-foto">Post</a>
                                 <a id="bottom" href="/create-album">Album</a>
                             </div>
                             </div>
@@ -146,7 +146,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="/login">Logout</a>
+                    <a class="btn btn-primary" href="{{route('login.logout')}}">Logout</a>
                 </div>
             </div>
         </div>

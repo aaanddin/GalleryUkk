@@ -88,16 +88,16 @@
                                         <form class="user" action="{{ route('login.authenticate') }}" method="post">
     @csrf
     <div class="form-group">
-        <input type="email" class="form-control form-control-user @error('Email') is-invalid @enderror" name="Email" id="Email" placeholder="Enter your email" autofocus required value="{{ old ('Email') }}">
-        @error('Email')
+        <input type="email" class="form-control form-control-user @error('email') is-invalid @enderror" name="email" id="email" placeholder="Enter your email" autofocus required value="{{ old ('email') }}">
+        @error('email')
         <div class="invalid-feedback">
             {{ $message }}
         </div>
         @enderror
     </div>
     <div class="form-group">
-        <input type="password" class="form-control form-control-user" name="Password" id="Password" placeholder="Enter your password" required autofocus>
-        @error('Password')
+        <input type="password" class="form-control form-control-user" name="password" id="password" placeholder="Enter your password" required autofocus>
+        @error('password')
         <div class="invalid-feedback">
             {{ $message }}
         </div>
