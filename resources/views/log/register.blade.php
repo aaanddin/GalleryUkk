@@ -42,7 +42,7 @@
                                  
                                  <div class="form-group">
                                      <input type="email" class="form-control form-control-user @error('email')is-invalid @enderror" name="email" id="email"
-                                         placeholder="Username" required value="{{old('email')}}">
+                                         placeholder="Email" required value="{{old('email')}}">
                                          @error('email')
                                          <div class="invalid-feedback">
                                             {{$message}}
@@ -78,7 +78,7 @@
                                  </div>
                                  <div class="form-group">
                                      <input type="password" class="form-control form-control-user @error('password')is-invalid @enderror" name="password" id="password"
-                                         placeholder="password" required value="{{old('password')}}">
+                                         placeholder="Password" required value="{{old('password')}}">
                                          @error('password')
                                          <div class="invalid-feedback">
                                             {{$message}}

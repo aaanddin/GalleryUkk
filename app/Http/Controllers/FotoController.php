@@ -59,8 +59,8 @@ class FotoController extends Controller
         Foto::create($validated);
 
         // Redirect ke halaman index
-        return redirect()->route('page.foto')->with('success', 'Fotomu sudah di post');
-        return redirect()->route('page.foto')->with('error', 'Post Foto Gagal');
+        return redirect()->route('page.foto')->with('success', 'Post Photo Succesfull >y<');
+        return redirect()->route('page.foto')->with('error', 'Post Photo Failed :(');
     }
 
     
