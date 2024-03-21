@@ -9,6 +9,7 @@ use App\Http\Controllers\FotoController;
 use App\Http\Controllers\LoginduaController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\NavbarController;
+use App\Http\Controllers\KomenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,10 @@ Route::get('/photo', [FotoController::class, 'index'])->name('page.foto')->middl
 // Tambah post
 Route::get('/create-foto', [FotoController::class, 'create'])->name('page.fotoaction.create')->middleware('auth');
 Route::post('/create-foto', [FotoController::class, 'store'])->name('foto.store');
+
+// komen
+// Route::get('/photo', [KomenController::class, 'index'])->name('komen.index')->middleware('auth');
+Route::post('/photo', [KomenController::class, 'store'])->name('komen.store');
 
 // Login, Logout, resgister
 Route::get('/login', [LoginduaController::class, 'index'])->name('log.login')->middleware('guest');

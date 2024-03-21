@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('komentarfoto', function (Blueprint $table) {
+        Schema::create('komens', function (Blueprint $table) {
             $table->id('KomentarID');
             $table->integer('FotoID');
             $table->integer('UserID');
             $table->text('IsiKomentar');
             $table->date('TanggalKomentar');
+            $table->timestamps();
         });
     }
 
