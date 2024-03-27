@@ -30,16 +30,20 @@ Route::redirect('/home', '/photo');
 
 Route::get('/', [WelcomeController::class, 'index'])->name('page.welcome')->middleware('guest');
 Route::get('/home', [HomeController::class, 'index'])->middleware('auth');
+
+// create album
 Route::get('/album', [AlbumController::class, 'index'])->name('page.album')->middleware('auth');
 Route::get('/create-album', [AlbumController::class, 'create'])->name('page.albumaction.create')->middleware('auth');
-Route::get('/photo', [FotoController::class, 'index'])->name('page.foto')->middleware('auth');
+Route::post('/create-album', [AlbumController::class, 'store'])->name('album.store');
+// detailalbum
+Route::get('/album/detail-album', [AlbumController::class, 'detail'])->name('page.albumaction.detail')->middleware('auth');
 
 // Tambah post
+Route::get('/photo', [FotoController::class, 'index'])->name('page.foto')->middleware('auth');
 Route::get('/create-foto', [FotoController::class, 'create'])->name('page.fotoaction.create')->middleware('auth');
 Route::post('/create-foto', [FotoController::class, 'store'])->name('foto.store');
 
 // komen
-// Route::get('/photo', [KomenController::class, 'index'])->name('komen.index')->middleware('auth');
 Route::post('/photo', [KomenController::class, 'store'])->name('komen.store');
 
 // Login, Logout, resgister

@@ -11,6 +11,14 @@ class Album extends Model
 
     protected $guarded = ['AlbumID'];
 
+    protected $fillable = [
+        'Cover',
+        'NamaAlbum',
+        'Deskripsi',
+        'TanggalDibuat',
+        'LokasiFile',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

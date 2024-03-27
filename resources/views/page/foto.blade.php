@@ -139,6 +139,13 @@
   stroke: white;
 }
 
+.card#komen .card_tags ul li,a{
+  font-weight: bold; 
+}
+.card#komen .card_tags ul li,a:hover{
+  color: gray;
+}
+
 </style>
 
 @if(session()->has('success'))
@@ -193,7 +200,7 @@
                                 $komentars = App\Models\Komen::where('FotoID', $foto->FotoID)->orderBy('TanggalKomentar','desc')->get();
                                 @endphp
                                 @foreach ($komentars as $komentar)
-                                <li class="tag__name">{{"@".$komentar->user->username." : ".$komentar->IsiKomentar}}</li>
+                                <li class="tag__name"><a  href="/profil">{{$komentar->user->username}}</a><br>{{$komentar->IsiKomentar}}</li><br>
                                 @endforeach
 
                             </ul>

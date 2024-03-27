@@ -19,8 +19,8 @@ return new class extends Migration
             $table->text('DeskripsiFoto');
             $table->date('TanggalUnggah');
             $table->string('LokasiFile', 255);
-            $table->integer('AlbumID');
-            $table->integer('UserID');
+            $table->integer('AlbumID')->nullable();
+            $table->integer('UserID')->nullable();
             $table->timestamps();
             
 

@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('album', function (Blueprint $table) {
+        Schema::create('albums', function (Blueprint $table) {
             $table->id('AlbumID', 11);
+            $table->string('Cover', 255);
             $table->string('NamaAlbum', 255);
             $table->text('Deskripsi');
             $table->date('TanggalDibuat');
-            $table->integer('UserID');
+            $table->integer('UserID')->nullable();
+            $table->timestamps();
         });
     }
 

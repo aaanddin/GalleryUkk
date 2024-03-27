@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('likefoto', function (Blueprint $table) {
             $table->id('LikeID');
-            $table->integer('FotoID');
-            $table->integer('UserID');  
+            $table->integer('FotoID')->nullable();
+            $table->integer('UserID')->nullable();  
             $table->date('TanggalLike');
+            $table->timestamps();
         });
     }
 
