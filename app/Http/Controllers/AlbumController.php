@@ -30,20 +30,20 @@ class AlbumController extends Controller
         // Validasi, 3 field ini diperlukan
         // Jika ada yang kurang, di redirect ke halaman sebelumnya dengan error
         $validated = $request->validate([
-            'NamaAlbum' => ['required'],
-            'Deskripsi' => ['required'],
+            'nama_album' => ['required'],
+            'deskripsi' => ['required'],
         ]);
 
-        $imageName = $request->file('Cover')->hashName();
+        $imageName = $request->file('cover')->hashName();
 
         // Taruh nama gambar baru ke array validated untuk nanti disimpan ke database
-        $validated['Cover'] = $imageName;
+        $validated['cover'] = $imageName;
         
         // Simpan gambar di folder public/news dengan nama yang diacak tadi
         $fotoDirectory = public_path() . '/albumcover';
-        $request->file('Cover')->move($fotoDirectory, $imageName);
+        $request->file('cover')->move($fotoDirectory, $imageName);
 
-        $validated['TanggalDibuat'] = Date::now();
+        $validated['tanggal_dibuat'] = Date::now();
 
         // insert row baru di table news dengan data didalam validated
         Album::create($validated);
@@ -60,38 +60,38 @@ class AlbumController extends Controller
         ]);
     }
 
-    public function edit(string $AlbumID)
+    public function edit(string $id)
     {
-        $albums = Album::find($AlbumID);
+        $albums = Album::find($id);
 
         return view('page.albumaction.edit', compact('albums'), [
             "title" => "edit"
         ]);
     }
 
-    public function update(Request $request, string $AlbumID)
+    public function update(Request $request, string $id)
     {
         
         $validated = $request->validate([
-            'NamaAlbum' => ['required'],
-            'Deskripsi' => ['required'],
+            'nama_album' => ['required'],
+            'deskripsi' => ['required'],
         ]);
 
         
-        $albums = Album::find($AlbumID);
+        $albums = Album::find($id);
 
         
-        Album::delete(public_path() . "/albumcover/$albums->Cover");
+        Album::delete(public_path() . "/albumcover/$albums->cover");
 
         
-        $imageName = $request->file('image')->hashName();
+        $imageName = $request->file('cover')->hashName();
 
         
-        $validated['Cover'] = $imageName;
+        $validated['cover'] = $imageName;
         
         
         $newsDirectory = public_path() . '/albumcover';
-        $request->file('Cover')->move($fotoDirectory, $imageName);
+        $request->file('cover')->move($fotoDirectory, $imageName);
         
         
         $fotos->update($validated);
@@ -100,13 +100,13 @@ class AlbumController extends Controller
         return redirect()->route('admin.pageadmin.listberita')->with('success', 'Data berhasil diedit.');
     }
 
-    public function destroy(string $AlbumID)
+    public function destroy(string $id)
     {
-        $albums = Foto::find($AlbumID);
+        $albums = Album::find($id);
 
         // Foto::delete(public_path() . "/foto/$fotos->LokasiFile");
 
-        $albums= Foto::where('AlbumID', $AlbumID)->delete();
+        $albums= Album::where('id', $id)->delete();
 
         return redirect()->route('page.album')->with('delete', 'Data berhasil dihapus.');        
     }

@@ -28,14 +28,14 @@
                         <div class="text">
                             <span>Click to upload > y <</span>
                         </div>
-                        <input id="file" type="file" name="LokasiFile" id="LokasiFile">
+                        <input id="file" type="file" name="lokasi_file" id="LokasiFile">
                     </label>
                     <div class="right">
                         <div class="card-3"> 
-                            <input type="text" name="JudulFoto" id="JudulFoto" class="input" placeholder="Photo's Title">
+                            <input type="text" name="judul_foto" id="JudulFoto" class="input" placeholder="Photo's Title">
                         </div>
                         <div class="card-3">
-                            <textarea id="Deskripsi" type="text" name="DeskripsiFoto" id="DeskripsiFoto" class="input" placeholder="Photo's Description"></textarea>
+                            <textarea id="Deskripsi" type="text" name="deskripsi_foto" id="DeskripsiFoto" class="input" placeholder="Photo's Description"></textarea>
                         </div>
                     </div>
                     <button class="mb-2" type="submit" id="createfoto">Post</button>

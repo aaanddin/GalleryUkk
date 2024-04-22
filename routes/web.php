@@ -50,13 +50,13 @@ Route::get('/photo', [FotoController::class, 'index'])->name('page.foto')->middl
 Route::get('/create-foto', [FotoController::class, 'create'])->name('page.fotoaction.create')->middleware('auth');
 Route::post('/create-foto', [FotoController::class, 'store'])->name('foto.store');
 // edit post
-Route::get('/photo/{FotoID}/edit', [FotoController::class, 'edit'])->name('foto.edit');
-Route::put('/photo/{FotoID}', [FotoController::class, 'update'])->name('foto.update');
+Route::get('/photo/{FotoID}/edit', [FotoController::class, 'edit'])->name('foto.edit')->middleware('auth');
+Route::put('/photo/{FotoID}', [FotoController::class, 'update'])->name('foto.update')->middleware('auth');
 // delete post
-Route::delete('/photo/{id}', [FotoController::class, 'destroy'])->name('foto.destroy');
+Route::delete('/photo/{id}', [FotoController::class, 'destroy'])->name('foto.destroy')->middleware('auth');
 
 // komen
-Route::post('/photo', [KomenController::class, 'store'])->name('komen.store');
+Route::post('/photo', [KomenController::class, 'store'])->name('komen.store')->middleware('auth');
 
 // Login, Logout, resgister
 Route::get('/login', [LoginduaController::class, 'index'])->name('log.login')->middleware('guest');

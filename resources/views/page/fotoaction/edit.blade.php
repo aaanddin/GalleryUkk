@@ -4,7 +4,7 @@
 <center>
     <div class="container">
         <div class="d-flex flex-column">
-            <form action="{{route('foto.update', $fotos->FotoID)}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('foto.update', $fotos->id)}}" method="post" enctype="multipart/form-data">
                 <div class="card" id="create" >
     
                 @if ($errors->any())
@@ -29,14 +29,14 @@
                         <div class="text">
                             <span>Click to edit > y <</span>
                         </div>
-                        <input id="file" type="file" name="LokasiFile" id="LokasiFile" value="{{ $fotos->LokasiFile }}">
+                        <input id="file" type="file" name="lokasi_file" id="LokasiFile" value="{{ $fotos->lokasi_file }}">
                     </label>
                     <div class="right">
                         <div class="card-3"> 
-                            <input type="text" name="JudulFoto" id="JudulFoto" class="input" placeholder="Photo's Title" value="{{ $fotos->JudulFoto }}">
+                            <input type="text" name="judul_foto" id="JudulFoto" class="input" placeholder="Photo's Title" value="{{ $fotos->judul_foto }}">
                         </div>
                         <div class="card-3">
-                            <textarea id="Deskripsi" type="text" name="DeskripsiFoto" id="DeskripsiFoto" class="input" placeholder="Photo's Description" value="{{ $fotos->DeskripsiFoto }}"></textarea>
+                            <textarea id="Deskripsi" type="text" name="deskripsi_foto" id="DeskripsiFoto" class="input" placeholder="Photo's Description" value="{{ $fotos->deskripsi_foto }}"></textarea>
                         </div>
                     </div>
                     <button class="mb-2" type="submit" id="createfoto">Save</button>

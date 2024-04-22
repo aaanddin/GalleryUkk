@@ -9,16 +9,16 @@ class Komen extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['KomentarID'];
+    protected $guarded = ['id'];
 
     protected $fillable = [
-        'FotoID',
-        'UserID',
-        'IsiKomentar',
-        'TanggalKomentar'
+        'fotos_id',
+        'users_id',
+        'isi_komentar',
+        'tanggal_komentar'
     ];
     public function User()
     {
-        return $this->belongsTo(User::class, 'UserID');
+        return $this->belongsTo(User::class, 'id');
     }
 }

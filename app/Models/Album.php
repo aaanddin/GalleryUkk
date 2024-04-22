@@ -9,14 +9,14 @@ class Album extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['AlbumID'];
+    protected $guarded = ['id'];
 
     protected $fillable = [
-        'Cover',
-        'NamaAlbum',
-        'Deskripsi',
-        'TanggalDibuat',
-        'LokasiFile',
+        'cover',
+        'nama_album',
+        'deskripsi',
+        'tanggal_dibuat',
+        'lokasi_file',
     ];
 
     public function user()

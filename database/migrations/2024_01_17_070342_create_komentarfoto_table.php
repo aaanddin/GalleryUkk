@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('komens', function (Blueprint $table) {
-            $table->id('KomentarID');
-            $table->integer('FotoID');
-            $table->integer('UserID');
-            $table->text('IsiKomentar');
-            $table->date('TanggalKomentar');
+            $table->id();
+            $table->integer('fotos_id');
+            $table->integer('users_id');
+            $table->text('isi_komentar');
+            $table->date('tanggal_komentar');
             $table->timestamps();
         });
     }

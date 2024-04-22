@@ -9,13 +9,13 @@ class Foto extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['FotoID'];
+    protected $guarded = ['id'];
 
     protected $fillable = [
-        'JudulFoto',
-        'DeskripsiFoto',
-        'TanggalUnggah',
-        'LokasiFile',
+        'judul_foto',
+        'deskripsi_foto',
+        'tanggal_unggah',
+        'lokasi_file',
     ];
 
     public function album()
@@ -33,6 +33,6 @@ class Foto extends Model
     }
     public function User()
     {
-        return $this->belongsTo(User::class, 'UserID');
+        return $this->belongsTo(User::class, 'users_id');
     }
 }

@@ -28,14 +28,14 @@
                         <div class="text">
                             <span>Select Album's Cover</span>
                         </div>
-                        <input id="file" type="file" name="Cover" id="Cover">
+                        <input id="file" type="file" name="cover" id="Cover">
                     </label>
                     <div class="right">
                         <div class="card-3"> 
-                            <input type="text" name="NamaAlbum" id="NamaAlbum" class="input" placeholder="Album's Title">
+                            <input type="text" name="nama_album" id="NamaAlbum" class="input" placeholder="Album's Title">
                         </div>
                         <div class="card-3">
-                            <textarea id="Deskripsi" type="text" name="Deskripsi" id="Deskripsi" class="input" placeholder="Album's Description"></textarea>
+                            <textarea id="Deskripsi" type="text" name="deskripsi" id="Deskripsi" class="input" placeholder="Album's Description"></textarea>
                         </div>
                     </div>
                     <button class="mb-2" type="submit" id="createfoto">Create</button>

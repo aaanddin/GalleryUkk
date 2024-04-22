@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('albums', function (Blueprint $table) {
-            $table->id('AlbumID', 11);
-            $table->string('Cover', 255);
-            $table->string('NamaAlbum', 255);
-            $table->text('Deskripsi');
-            $table->date('TanggalDibuat');
-            $table->integer('UserID')->nullable();
+            $table->id();
+            $table->string('cover', 255);
+            $table->string('nama_album', 255);
+            $table->text('deskripsi');
+            $table->date('tanggal_dibuat');
+            $table->integer('users_id')->nullable();
             $table->timestamps();
         });
     }

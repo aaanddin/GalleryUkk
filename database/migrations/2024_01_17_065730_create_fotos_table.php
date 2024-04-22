@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('fotos', function (Blueprint $table) {
-            $table->id('FotoID');
-            $table->string('JudulFoto', 255);
-            $table->text('DeskripsiFoto');
-            $table->date('TanggalUnggah');
-            $table->string('LokasiFile', 255);
-            $table->integer('AlbumID')->nullable();
-            $table->integer('UserID')->nullable();
+            $table->id('id');
+            $table->string('judul_foto', 255);
+            $table->text('deskripsi_foto');
+            $table->date('tanggal_unggah');
+            $table->string('lokasi_file', 255);
+            $table->integer('albums_id')->nullable();
+            $table->integer('users_id')->nullable();
             $table->timestamps();
             
 

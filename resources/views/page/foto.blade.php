@@ -171,42 +171,42 @@
     @foreach($fotos as $foto)
     <div class="col-2 mb-4">
         <div class="card" id="photo">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#modal{{$foto->FotoID}}">
-                <img src="{{ asset('foto/' . $foto->LokasiFile) }}" class="card-img-top" alt="Foto">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#modal{{$foto->id}}">
+                <img src="{{ asset('foto/' . $foto->lokasi_file) }}" class="card-img-top" alt="Foto">
             </a>
             <div class="card-body">
-                <h5 class="card-title text-center fst-italic fw-bold fs-5" style="color: #394867">{{ $foto->JudulFoto }}</h5>
+                <h5 class="card-title text-center fst-italic fw-bold fs-5" style="color: #394867">{{ $foto->judul_foto }}</h5>
             </div>
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="modal{{$foto->FotoID}}" tabindex="-1" aria-labelledby="modal{{$foto->FotoID}}Label" aria-hidden="true">
+    <div class="modal fade" id="modal{{$foto->id}}" tabindex="-1" aria-labelledby="modal{{$foto->id}}Label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             <div class="card mb-3">
             <div class="row g-0">
                 <div class="col-md-4">
-                <img src="{{ asset('foto/' . $foto->LokasiFile) }}" class="img-fluid rounded-start rounded-end" alt="...">
+                <img src="{{ asset('foto/' . $foto->lokasi_file) }}" class="img-fluid rounded-start rounded-end" alt="...">
                 </div>
                 <div class="col-md-8">
                 <div class="card-body">
                     @php
-                    $users = App\Models\User::where('id', $foto->FotoID)->get();
+                    $users = App\Models\User::where('id', $foto->id)->get();
                     @endphp
                     @foreach($users as $user)
-                    <b><a href="/profil">@auth {{ $user->username }} @endauth</a></b>
+                    <b><a href="/profil">{{$user->username}}</a></b>
                     @endforeach
-                    <b><h5 class="card-title" id="modal{{$foto->FotoID}}Label" style="font-weight: bold; ">{{ $foto->JudulFoto }}</h5></b>
-                    <p class="card-text">{{ $foto->DeskripsiFoto }}</p>
+                    <b><h5 class="card-title" id="modal{{$foto->id}}Label" style="font-weight: bold; ">{{ $foto->judul_foto }}</h5></b>
+                    <p class="card-text">{{ $foto->deskripsi_foto }}</p>
                     <div class="card" id="komen">
                         <span class="title">Comments</span>
                         <div class="card__tags">
                             <ul class="tag" style="padding-left: 0px;">
                                 @php
-                                $komentars = App\Models\Komen::where('FotoID', $foto->FotoID)->latest()->get();
+                                $komentars = App\Models\Komen::where('fotos_id', $foto->id)->latest()->get();
                                 @endphp
                                 @foreach ($komentars as $komentar)
-                                <li class="tag__name"><a  href="/profil">{{$komentar->user->username}}</a><br>{{$komentar->IsiKomentar}}</li><br>
+                                <li class="tag__name"><a  href="/profil">{{$komentar->user->username}}</a><br>{{$komentar->isi_komentar}}</li><br>
                                 @endforeach
 
                             </ul>
@@ -215,8 +215,8 @@
                     <form action="{{route('komen.store')}}" method="post">
                         <div class="messageBox">
                         @csrf
-                            <input type="hidden" value="{{$foto->FotoID}}" id="messageInput" name="FotoID" />
-                            <input required="" placeholder="ur comment..." type="text" name="IsiKomentar" id="messageInput" />
+                            <input type="hidden" value="{{$foto->id}}" id="messageInput" name="fotos_id" />
+                            <input required="" placeholder="ur comment..." type="text" name="isi_komentar" id="messageInput" />
                             <button id="sendButton" type="submit">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 664 663">
                                 <path fill="none" d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888"></path>
@@ -225,18 +225,12 @@
                             </button>
                         </div>
                     </form>
-                    <form action="">
-                      <button class="btn" type="submit" style="background-color: #394867;">Like</button>
-                    </form>
-                    <form action="{{ route('foto.update', $foto->FotoID) }}" method="PUT" class="mt-2">
-                      <a href="{{ route('foto.edit', $foto->FotoID) }}">
-                        <button class="btn" style="background-color: lightgray;">Edit</button>
-                      </a>
-                    </form>
-                    <form action="{{ route('foto.destroy', $foto->FotoID) }}" method="POST" id ="form-delete-{{ $foto->FotoID }}">
+                    <form action="{{ route('foto.destroy', $foto->id) }}" method="POST" id ="form-delete-{{ $foto->id }}" class="mt-3">
+                    <button class="btn" type="submit" style="background-color: #394867; width:90px;">Like</button>
+                    <a class="btn" style="background-color: lightgray;  width:90px;" href="{{ route('foto.edit',$foto->id) }}">Edit</a>
                       @csrf
                       @method('DELETE')
-                      <button class="btn btn-danger" onclick="handleDelete({{ $foto->FotoID }})">Delete</button>
+                      <button class="btn btn-danger" style=" width:90px;" onclick="handleDelete({{ $foto->id }})">Delete</button>
                     </form>
                 </div>
                 </div>

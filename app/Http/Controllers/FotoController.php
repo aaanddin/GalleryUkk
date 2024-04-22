@@ -38,22 +38,22 @@ class FotoController extends Controller
         // Validasi, 3 field ini diperlukan
         // Jika ada yang kurang, di redirect ke halaman sebelumnya dengan error
         $validated = $request->validate([
-            'JudulFoto' => ['required'],
-            'DeskripsiFoto' => ['required'],
-            'LokasiFile' => ['required'],
+            'judul_foto' => ['required'],
+            'deskripsi_foto' => ['required'],
+            'lokasi_file' => ['required'],
         ]);
 
         // Acak nama gambar
         // Alasan acak nama gambar agar tidak ada 2 gambar dengan nama yang sama
-        $imageName = $request->file('LokasiFile')->hashName();
+        $imageName = $request->file('lokasi_file')->hashName();
 
         // Taruh nama gambar baru ke array validated untuk nanti disimpan ke database
-        $validated['LokasiFile'] = $imageName;
+        $validated['lokasi_file'] = $imageName;
         
         // Simpan gambar di folder public/news dengan nama yang diacak tadi
         $fotoDirectory = public_path() . '/foto';
-        $request->file('LokasiFile')->move($fotoDirectory, $imageName);
-        $validated['TanggalUnggah'] = Date::now();
+        $request->file('lokasi_file')->move($fotoDirectory, $imageName);
+        $validated['tanggal_unggah'] = Date::now();
 
         // insert row baru di table news dengan data didalam validated
         Foto::create($validated);
@@ -63,56 +63,57 @@ class FotoController extends Controller
         return redirect()->route('page.foto')->with('error', 'Post Photo Failed :(');
     }
 
-    public function edit(string $FotoID)
+    public function edit(string $id)
     {
-        $fotos = Foto::find($FotoID);
+        $fotos = Foto::find($id);
 
         return view('page.fotoaction.edit', compact('fotos'), [
             "title" => "edit"
         ]);
     }
 
-    public function update(Request $request, string $FotoID)
+    public function update(Request $request, string $id)
     {
         
         $validated = $request->validate([
-            'JudulFoto' => ['required'],
-            'DeskripsiFoto' => ['required'],
-            'LokasiFile' => ['required'],
+            'judul_foto' => ['required'],
+            'deskripsi_foto' => ['required'],
+            'lokasi_file' => ['required'],
         ]);
 
         
-        $fotos = Foto::find($FotoID);
+        $fotos = Foto::find($id);
 
         
-        Foto::delete(public_path() . "/foto/$fotos->LokasiFile");
+        Foto::destroy(public_path() . "/foto/$fotos->lokasi_file");
 
         
-        $imageName = $request->file('LokasiFile')->hashName();
+        $imageName = $request->file('lokasi_file')->hashName();
 
         
-        $validated['LokasiFile'] = $imageName;
+        $validated['lokasi_file'] = $imageName;
         
         
-        $newsDirectory = public_path() . '/foto';
-        $request->file('LokasiFile')->move($fotoDirectory, $imageName);
+        $fotoDirectory = public_path() . '/foto';
+        $request->file('lokasi_file')->move($fotoDirectory, $imageName);
         
         
         $fotos->update($validated);
 
         
-        return redirect()->route('admin.pageadmin.listberita')->with('success', 'Data berhasil diedit.');
+        return redirect()->route('page.foto')->with('success', 'Post has been edited >y<');
     }
 
     public function destroy(string $id)
     {
         $fotos = Foto::find($id);
 
-        // Foto::delete(public_path() . "/foto/$fotos->LokasiFile");
+        $fotos = Foto::destroy(public_path() . '/foto/$fotos->lokasi_file');
 
         $fotos= Foto::where('id', $id)->delete();
 
-        return redirect()->route('page.foto')->with('delete', 'Data berhasil dihapus.');        
+        return redirect()->route('page.foto')->with('delete', 'Photo has been deleted >y<');        
+        return redirect()->route('page.foto')->with('deleteerror', 'Photo delete failed:(');        
     }
 
 

@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('likefoto', function (Blueprint $table) {
-            $table->id('LikeID');
-            $table->integer('FotoID')->nullable();
-            $table->integer('UserID')->nullable();  
-            $table->date('TanggalLike');
+            $table->id();
+            $table->integer('fotos_id')->nullable();
+            $table->integer('users_id')->nullable();  
+            $table->date('tanggal_like');
             $table->timestamps();
         });
     }
