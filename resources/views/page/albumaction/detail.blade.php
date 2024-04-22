@@ -60,7 +60,18 @@
  </style>
 
 
-
+@if(session()->has('success'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ session('success') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
+@if(session()->has('error'))
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ session('error') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
 <div class="fileUploadWrapper">
     <label for="file">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 337 337">
@@ -87,7 +98,12 @@
       </svg>
       <span class="tooltip">Add an image</span>
     </label>
-    <input type="file" id="file" name="file" />
+
+
+    <form action="{{route('album.albumfoto')}}" method="post" enctype="multipart/form-data" method="post">
+      <input type="file" id="fotoalbum" name="fotoalbum" />
+      <button class="mb-2" type="submit" id="createfoto">Post</button>
+    </form>
   </div>
 
 @endsection

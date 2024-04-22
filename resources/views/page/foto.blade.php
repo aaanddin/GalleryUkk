@@ -160,6 +160,12 @@
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 @endif
+@if(session()->has('delete'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ session('delete') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
 
 <div class="row justify-content-start">
     @foreach($fotos as $foto)
@@ -197,7 +203,7 @@
                         <div class="card__tags">
                             <ul class="tag" style="padding-left: 0px;">
                                 @php
-                                $komentars = App\Models\Komen::where('FotoID', $foto->FotoID)->orderBy('TanggalKomentar','desc')->get();
+                                $komentars = App\Models\Komen::where('FotoID', $foto->FotoID)->latest()->get();
                                 @endphp
                                 @foreach ($komentars as $komentar)
                                 <li class="tag__name"><a  href="/profil">{{$komentar->user->username}}</a><br>{{$komentar->IsiKomentar}}</li><br>
@@ -218,6 +224,19 @@
                                 </svg>
                             </button>
                         </div>
+                    </form>
+                    <form action="">
+                      <button class="btn" type="submit" style="background-color: #394867;">Like</button>
+                    </form>
+                    <form action="{{ route('foto.update', $foto->FotoID) }}" method="PUT" class="mt-2">
+                      <a href="{{ route('foto.edit', $foto->FotoID) }}">
+                        <button class="btn" style="background-color: lightgray;">Edit</button>
+                      </a>
+                    </form>
+                    <form action="{{ route('foto.destroy', $foto->FotoID) }}" method="POST" id ="form-delete-{{ $foto->FotoID }}">
+                      @csrf
+                      @method('DELETE')
+                      <button class="btn btn-danger" onclick="handleDelete({{ $foto->FotoID }})">Delete</button>
                     </form>
                 </div>
                 </div>

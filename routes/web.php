@@ -37,11 +37,23 @@ Route::get('/create-album', [AlbumController::class, 'create'])->name('page.albu
 Route::post('/create-album', [AlbumController::class, 'store'])->name('album.store');
 // detailalbum
 Route::get('/album/detail-album', [AlbumController::class, 'detail'])->name('page.albumaction.detail')->middleware('auth');
+// delete album
+Route::delete('/album/{AlbumID}', [AlbumController::class, 'destroy'])->name('album.destroy');
+// edit album
+Route::get('/album/{AlbumID}/edit', [AlbumController::class, 'edit'])->name('album.edit');
+Route::put('/album/{AlbumID}', [AlbumController::class, 'update'])->name('album.update');
+// post foto album
+Route::post('/album/detail-album', [AlbumController::class, 'albumfoto'])->name('album.albumfoto');
 
 // Tambah post
 Route::get('/photo', [FotoController::class, 'index'])->name('page.foto')->middleware('auth');
 Route::get('/create-foto', [FotoController::class, 'create'])->name('page.fotoaction.create')->middleware('auth');
 Route::post('/create-foto', [FotoController::class, 'store'])->name('foto.store');
+// edit post
+Route::get('/photo/{FotoID}/edit', [FotoController::class, 'edit'])->name('foto.edit');
+Route::put('/photo/{FotoID}', [FotoController::class, 'update'])->name('foto.update');
+// delete post
+Route::delete('/photo/{id}', [FotoController::class, 'destroy'])->name('foto.destroy');
 
 // komen
 Route::post('/photo', [KomenController::class, 'store'])->name('komen.store');

@@ -48,7 +48,7 @@
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item active">
+            <!-- <li class="nav-item active">
                 <a class="nav-link" href="">
                 <i class="bi bi-chat-right-heart-fill" style="color: #F6F6F6"></i>
                     <span style="color: #F6F6F6">Comments</span></a>
@@ -68,7 +68,7 @@
                         <a class="collapse-item" href="utilities-border.html"></i>Comments</a>
                     </div>
                 </div>
-            </li>
+            </li> -->
 
             <!-- Divider -->
 

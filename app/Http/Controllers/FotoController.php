@@ -15,7 +15,7 @@ class FotoController extends Controller
 
     public function index() {
 
-        $fotos = Foto::all();
+        $fotos = Foto::latest()->get();
         return view('page.foto', [
             "active" => "foto",
             "title" => "Photo",
@@ -62,6 +62,60 @@ class FotoController extends Controller
         return redirect()->route('page.foto')->with('success', 'Post Photo Succesfull >y<');
         return redirect()->route('page.foto')->with('error', 'Post Photo Failed :(');
     }
+
+    public function edit(string $FotoID)
+    {
+        $fotos = Foto::find($FotoID);
+
+        return view('page.fotoaction.edit', compact('fotos'), [
+            "title" => "edit"
+        ]);
+    }
+
+    public function update(Request $request, string $FotoID)
+    {
+        
+        $validated = $request->validate([
+            'JudulFoto' => ['required'],
+            'DeskripsiFoto' => ['required'],
+            'LokasiFile' => ['required'],
+        ]);
+
+        
+        $fotos = Foto::find($FotoID);
+
+        
+        Foto::delete(public_path() . "/foto/$fotos->LokasiFile");
+
+        
+        $imageName = $request->file('LokasiFile')->hashName();
+
+        
+        $validated['LokasiFile'] = $imageName;
+        
+        
+        $newsDirectory = public_path() . '/foto';
+        $request->file('LokasiFile')->move($fotoDirectory, $imageName);
+        
+        
+        $fotos->update($validated);
+
+        
+        return redirect()->route('admin.pageadmin.listberita')->with('success', 'Data berhasil diedit.');
+    }
+
+    public function destroy(string $id)
+    {
+        $fotos = Foto::find($id);
+
+        // Foto::delete(public_path() . "/foto/$fotos->LokasiFile");
+
+        $fotos= Foto::where('id', $id)->delete();
+
+        return redirect()->route('page.foto')->with('delete', 'Data berhasil dihapus.');        
+    }
+
+
 
     
 }
