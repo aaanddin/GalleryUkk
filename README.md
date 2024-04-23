@@ -20,7 +20,7 @@
 ## Menggunakan aplikasi/website Gallerium
 Gallerium hanya memiliki satu user/pengguna. Untuk bisa mengakses, anda tinggal membuat akun pada halaman register lalu login
 
-Namun, sebelum menjalankan aplikasi anda harus membuat database dengan nama yang sesuai dengan nama database di folder `.env` lalu melakukan migrasi tabel database dengan menuliskan `php artisan migrate` pada terminal
+Namun, sebelum menjalankan aplikasi anda harus membuat database dengan nama yang sesuai dengan nama database di file `.env` lalu melakukan migrasi tabel database dengan menuliskan `php artisan migrate` pada terminal
 
 ## ERD/tabel database
 ![Screenshot (113)](https://github.com/aaanddin/GalleryUkk/assets/140687214/46138429-6b84-412a-a357-055178dc5c2b)
