@@ -28,6 +28,9 @@ Namun, sebelum menjalankan aplikasi anda harus membuat database dengan nama yang
 ![Screenshot (125)](https://github.com/aaanddin/GalleryUkk/assets/140687214/504ec8e2-8f1a-4fa0-812d-1e3e3a42a187) 
 ## Flowchart
 ![Screenshot edt (124)](https://github.com/aaanddin/GalleryUkk/assets/140687214/2a7d8a8e-415d-4be5-a270-063ae2b4b068)
+## Usecase
+![Screenshot (126)](https://github.com/aaanddin/GalleryUkk/assets/140687214/6b7fe356-97fc-4564-9577-7f2a0e7fb5fc)
+
 
 
 
