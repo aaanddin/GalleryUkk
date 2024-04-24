@@ -24,6 +24,10 @@ Namun, sebelum menjalankan aplikasi anda harus membuat database dengan nama yang
 
 ## ERD/tabel database
 ![Screenshot (113)](https://github.com/aaanddin/GalleryUkk/assets/140687214/46138429-6b84-412a-a357-055178dc5c2b)
+## UML/Relasi
+![Screenshot (125)](https://github.com/aaanddin/GalleryUkk/assets/140687214/504ec8e2-8f1a-4fa0-812d-1e3e3a42a187) 
+## Flowchart
+![Screenshot edt (124)](https://github.com/aaanddin/GalleryUkk/assets/140687214/2a7d8a8e-415d-4be5-a270-063ae2b4b068)
 
 
 
@@ -155,7 +159,7 @@ class KomenController extends Controller
 
 
 ## Saran
-website masih dalam proses pengembangan sehingga masih ada beberapa fitur yang belum bisa digunakan. untuk itu, disarankan untuk menggunakan fitur yang sudah berjalan seperti post photo, edit photo, delete photo, komentar photo, dan create/membuat album
+website masih dalam proses pengembangan sehingga masih ada beberapa fitur yang belum bisa digunakan. untuk itu, disarankan untuk menggunakan fitur yang sudah berjalan seperti post photo, edit photo, delete photo, komentar photo, create/membuat album dan delete album
 
 
 
